@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.personalbudgeting.controller.ExpenseController">
+   <left>
+      <VBox fx:id="navBar" alignment="TOP_CENTER" prefHeight="600.0" prefWidth="150.0" spacing="10.0" style="-fx-background-color: #263238;">
+         <children>
+            <Label text="Personal Budget" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="incomeNavButton" mnemonicParsing="false" onAction="#handleIncomeNavButton" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #37474F;" text="Income" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="expenseNavButton" mnemonicParsing="false" onAction="#handleExpenseNavButton" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #F44336;" text="Expense" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="budgetNavButton" mnemonicParsing="false" onAction="#handleBudgetNavButton" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #37474F;" text="Budget" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="reminderNavButton" mnemonicParsing="false" onAction="#handleReminderNavButton" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #37474F;" text="Reminders" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <VBox alignment="BOTTOM_CENTER" prefHeight="330.0" prefWidth="130.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogoutButton" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #F44336;" text="Logout" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Expense Management">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="20.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: #F5F5F5; -fx-background-radius: 5;">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="20.0">
+                     <children>
+                        <Label text="Category:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="categoryComboBox" prefHeight="30.0" prefWidth="200.0" promptText="Select Category" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="20.0">
+                     <children>
+                        <Label text="Amount:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="amountField" prefHeight="30.0" prefWidth="200.0" promptText="Amount (e.g. 150.50)" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="20.0">
+                     <children>
+                        <Label text="Date:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="datePicker" prefHeight="30.0" prefWidth="200.0" promptText="Select Date" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="20.0">
+                     <children>
+                        <Label text="Description:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="descriptionArea" prefHeight="60.0" prefWidth="400.0" promptText="Optional notes about the expense" wrapText="true" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" spacing="10.0">
+                     <children>
+                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#handleAddButton" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #4CAF50;" text="Add" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="updateButton" mnemonicParsing="false" onAction="#handleUpdateButton" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #FFC107;" text="Update" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDeleteButton" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #F44336;" text="Delete" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="clearButton" mnemonicParsing="false" onAction="#handleClearButton" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #9E9E9E;" text="Clear" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+            </VBox>
+            <Label text="Expense Records">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="20.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <TableView fx:id="expenseTable" VBox.vgrow="ALWAYS">
+              <columns>
+                <TableColumn fx:id="categoryColumn" prefWidth="150.0" text="Category" />
+                <TableColumn fx:id="amountColumn" prefWidth="100.0" text="Amount" />
+                <TableColumn fx:id="dateColumn" prefWidth="120.0" text="Date" />
+                <TableColumn fx:id="descriptionColumn" prefWidth="250.0" text="Description" />
+              </columns>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="5.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+</BorderPane> 

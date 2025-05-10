@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+
+<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.personalbudgeting.controller.ReminderController">
+   <children>
+      <VBox fx:id="navBar" alignment="TOP_CENTER" prefHeight="600.0" prefWidth="150.0" style="-fx-background-color: #263238;">
+         <children>
+            <Label text="Personal Budget" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="incomeNavButton" mnemonicParsing="false" onAction="#handleIncomeNavButton" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #37474F;" text="Income" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="expenseNavButton" mnemonicParsing="false" onAction="#handleExpenseNavButton" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #37474F;" text="Expense" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="budgetNavButton" mnemonicParsing="false" onAction="#handleBudgetNavButton" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #37474F;" text="Budget" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="reminderNavButton" mnemonicParsing="false" onAction="#handleReminderNavButton" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #9C27B0;" text="Reminders" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogoutButton" prefHeight="40.0" prefWidth="130.0" style="-fx-background-color: #F44336;" text="Logout" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <VBox prefHeight="600.0" prefWidth="650.0">
+         <children>
+            <HBox prefHeight="80.0" prefWidth="650.0" style="-fx-background-color: #ECEFF1;">
+               <children>
+                  <Label text="Reminder Management">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" top="20.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="520.0" prefWidth="650.0">
+               <children>
+                  <VBox prefHeight="520.0" prefWidth="300.0" spacing="10.0">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <Label text="Add Reminder">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="280.0" spacing="10.0">
+                           <children>
+                              <Label text="Title:" />
+                              <TextField fx:id="titleField" prefHeight="30.0" prefWidth="200.0" promptText="Enter reminder title" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="280.0" spacing="10.0">
+                           <children>
+                              <Label text="Date:" />
+                              <DatePicker fx:id="datePicker" prefHeight="30.0" prefWidth="200.0" promptText="Select date" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="280.0" spacing="10.0">
+                           <children>
+                              <Label text="Time:" />
+                              <TextField fx:id="timeField" prefHeight="30.0" prefWidth="200.0" promptText="Enter time (HH:MM)" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_LEFT" prefHeight="100.0" prefWidth="280.0" spacing="10.0">
+                           <children>
+                              <Label text="Description:" />
+                              <TextArea fx:id="descriptionArea" prefHeight="100.0" prefWidth="200.0" promptText="Enter reminder description" wrapText="true" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="280.0" spacing="10.0">
+                           <children>
+                              <Button fx:id="addButton" mnemonicParsing="false" onAction="#handleAddButton" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #4CAF50;" text="Add" textFill="WHITE" />
+                              <Button fx:id="updateButton" mnemonicParsing="false" onAction="#handleUpdateButton" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #FFA000;" text="Update" textFill="WHITE" />
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="280.0" spacing="10.0">
+                           <children>
+                              <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDeleteButton" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #F44336;" text="Delete" textFill="WHITE" />
+                              <Button fx:id="clearButton" mnemonicParsing="false" onAction="#handleClearButton" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #9E9E9E;" text="Clear" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="280.0" spacing="10.0">
+                           <children>
+                              <Label text="Upcoming Reminders:" />
+                              <Label fx:id="upcomingRemindersLabel" text="0">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="520.0" prefWidth="350.0">
+                     <children>
+                        <TableView fx:id="reminderTable" prefHeight="500.0" prefWidth="350.0">
+                          <columns>
+                            <TableColumn fx:id="titleColumn" prefWidth="80.0" text="Title" />
+                            <TableColumn fx:id="dueDateColumn" prefWidth="100.0" text="Due Date" />
+                              <TableColumn fx:id="descriptionColumn" prefWidth="80.0" text="Description" />
+                              <TableColumn fx:id="completedColumn" prefWidth="40.0" text="Done" />
+                              <TableColumn fx:id="actionColumn" prefWidth="50.0" text="Action" />
+                          </columns>
+                           <VBox.margin>
+                              <Insets bottom="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox> 
