@@ -70,7 +70,7 @@ public class BudgetService {
         if (currentUser == null) {
             return null;
         }
-        
+        //We need to save the budget in my data base to control the data
         // Get budgets by category
         Map<String, Double> budgets = budgetDAO.getBudgetsByCategory(currentUser.getId(), period);
         
